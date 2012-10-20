@@ -1,8 +1,8 @@
 # load vcs_info and register our prompt function
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' actionformats " %{%B%F{green}%}[%{%f%}%s:%{%B%F{blue}%}%b%{%B%F{green}%}|%F{red}%a%{%B%F{green}%}]%{%f%k%}"
-zstyle ':vcs_info:*' formats       " %{%B%F{green}%}[%{%f%}%s:%{%B%F{blue}%}%b%{%B%F{green}%}]%{%f%k%}"
+zstyle ':vcs_info:*' actionformats " %{%B%F{green}%}[%{%%b%f%}%s:%{%%b%F{green}%}%b%{%B%F{green}%}|%F{red}%a%{%B%F{green}%}]%{%f%k%}"
+zstyle ':vcs_info:*' formats       " %{%B%F{green}%}[%{%%b%f%}%s:%{%%b%F{green}%}%b%{%B%F{green}%}]%{%f%k%}"
 
 precmd() {
     vcs_info
