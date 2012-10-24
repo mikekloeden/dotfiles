@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Print out iOS restore files available on the Apple download server.
+#
+# Following example prints out iPhone 4S restore files
+#
+#   appl | grep iPhone4,1
+
+curl -Ls http://phobos.apple.com/version | 
+  grep -i 'restore' | 
+  awk -F '<string>' '{ print $2 }' | 
+  cut -d'<' -f1 | 
+  sed 's/^[ \t]*//' | 
+  awk '!x[$0]++'
