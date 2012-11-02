@@ -1,0 +1,2 @@
+#compdef cdgit
+_files -W ~git -/

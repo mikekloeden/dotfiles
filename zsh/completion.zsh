@@ -34,7 +34,7 @@ zstyle ':completion:*' verbose yes
 zstyle ':completion:*:-command-:*:' verbose no
 
 # default menu selection for a few commands
-zstyle ':completion:*:*:(kill*|man|git):*' menu yes
+zstyle ':completion:*:*:(kill*|man|git|e|c|cd*):*' menu yes
 
 # remove current commandline form possible completions
 zstyle ':completion:*:(rm|kill):*' ignore-line yes
