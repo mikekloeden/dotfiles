@@ -8,10 +8,10 @@ then
   alias la='gls -A --color'   # list all, includes dot files
   alias ll='gls -l --color'   # long list, excludes dot files
 else 
-  alias ls='ls -G'     # list
-  alias l='ls -Gla'    # long list all, includes dot files
-  alias la='ls -Ga'    # list all, includes dot files
-  alias ll='ls -Alhp'  # long list, excludes dot files
+  alias ls='ls -G --color'     # list
+  alias l='ls -Gla --color'    # long list all, includes dot files
+  alias la='ls -Ga --color'    # list all, includes dot files
+  alias ll='ls -Alhp --color'  # long list, excludes dot files
 fi
 
 # Starts the extended vi when using vi
