@@ -1,7 +1,0 @@
-#compdef ssh-copy-id
-# FIXME This completes "user@host" and not "[user@]host" ("user@" is optional),
-#       should be merged in _ssh.
-
-_arguments -A "-*" \
-  '-i+[use identity file]:SSH identity file:_files' \
-  '1: :_user_at_host'
