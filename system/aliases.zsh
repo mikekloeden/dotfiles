@@ -1,17 +1,23 @@
+# ls overides
+if $(ls --color &>/dev/null)
+then
+  alias ls='ls --color'
+else 
+  alias ls='ls -G'
+fi
 # grc overides for ls
 #   Made possible through contributions from generous benefactors like
 #   `brew install coreutils`
 if $(gls &>/dev/null)
 then
-  alias ls='gls -F --color'   # list
-  alias l='gls -lAh --color'  # long list all, includes dot files
-  alias la='gls -A --color'   # list all, includes dot files
-  alias ll='gls -l --color'   # long list, excludes dot files
-else 
-  alias ls='ls -G --color'     # list
-  alias l='ls -Gla --color'    # long list all, includes dot files
-  alias la='ls -Ga --color'    # list all, includes dot files
-  alias ll='ls -Alhp --color'  # long list, excludes dot files
+  alias ls='gls --color'      # list
+  alias la='gls -Ap --color'  # list, includes dot files
+  alias ll='gls -l --color'   # long list
+  alias l='gls -lAh --color'  # long list, includes dot files
+else 	
+  alias la='ls -Ahp'  # list, includes dot files
+  alias ll='ls -l'    # long list
+  alias l='ls -lAh'   # long list, includes dot files
 fi
 
 # Starts the extended vi when using vi
