@@ -2,6 +2,10 @@
         name = Mike Klöden
         email = mike.kloeden@gmail.com
 
+[github]
+        user = mikekloeden
+        token = !cat ~/.github.token
+
 [push]
         default = current
 
