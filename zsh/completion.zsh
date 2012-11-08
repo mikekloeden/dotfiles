@@ -58,13 +58,14 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-
 
 # Don't complete uninteresting users
 zstyle ':completion:*:*:*:*:users' ignored-patterns \
-        adm amanda apache avahi beaglidx bin cacti canna clamav daemon \
+        apache bin cacti canna clamav daemon \
         dbus distcache dovecot fax ftp games gdm gkrellmd gopher \
         hacluster haldaemon halt hsqldb ident junkbust ldap lp mail \
-        mailman mailnull mldonkey mysql nagios \
+        mailman mailnull mldonkey mongod mysql nagios \
         named netdump news nfsnobody nobody nscd ntp nut nx openvpn \
         operator pcap postfix postgres privoxy pulse pvm quagga radvd \
-        rpc rpcuser rpm shutdown squid sshd sync uucp vcsa xfs \
+        rpc rpcuser rpm shutdown squid sshd sync uucp vcsa webmail xfs \
+        'qmail*'
         '_*'
 
 # ... unless we really want to.
