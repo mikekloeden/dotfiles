@@ -65,7 +65,7 @@ zstyle ':completion:*:*:*:*:users' ignored-patterns \
         named netdump news nfsnobody nobody nscd ntp nut nx openvpn \
         operator pcap postfix postgres privoxy pulse pvm quagga radvd \
         rpc rpcuser rpm shutdown squid sshd sync uucp vcsa webmail xfs \
-        'qmail*'
+        'qmail*' \
         '_*'
 
 # ... unless we really want to.
