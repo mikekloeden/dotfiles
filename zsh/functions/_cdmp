@@ -1,2 +1,2 @@
 #compdef cdmp
-_files -W ~git/mediaport3/laudert -/
+_files -W ~git/mediaport3/ -/
