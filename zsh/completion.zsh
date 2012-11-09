@@ -89,9 +89,9 @@ zstyle ':completion:*:*:*:*:hosts' list-colors "=*=$color[green]"
 zstyle ':completion:*:*:*:*:users' list-colors "=*=$color[red]"
 
 # description in selection menu
-zstyle ':completion:*:descriptions' format "- %{${fg_bold[green]}%}%d%{${reset_color}%} -"
-zstyle ':completion:*:messages'     format "- %{${fg_bold[cyan]}%}%d%{${reset_color}%} -"
-zstyle ':completion:*:corrections'  format "- %{${fg_bold[green]}%}%d%{${reset_color}%} - (%{${fg[cyan]}%}errors %e%{${reset_color}%})"
+zstyle ':completion:*:descriptions' format "- %{${fg_bold[magenta]}%}%d%{${reset_color}%} -"
+zstyle ':completion:*:messages'     format "- %{${fg_bold[yellow]}%}%d%{${reset_color}%} -"
+zstyle ':completion:*:corrections'  format "- %{${fg_bold[magenta]}%}%d%{${reset_color}%} - (%{${fg[yellow]}%}errors %e%{${reset_color}%})"
 
 zstyle ':completion:*:default'      \
   select-prompt \

@@ -30,13 +30,15 @@
 	<data>
 	YnBsaXN0MDDUAQIDBAUIGhtUJHRvcFgkb2JqZWN0c1gkdmVyc2lvblkkYXJjaGl2ZXLR
 	BgdUcm9vdIABpAkKExRVJG51bGzUCwwNDg8QERJWTlNTaXplVk5TTmFtZVYkY2xhc3NY
-	TlNmRmxhZ3MjQCgAAAAAAACAAoADEBBdTWVubG8tUmVndWxhctIVFhcYWCRjbGFzc2Vz
-	WiRjbGFzc25hbWWiGBlWTlNGb250WE5TT2JqZWN0EgABhqBfEA9OU0tleWVkQXJjaGl2
-	ZXIIERYfKDI1OjxBR1BXXmVud3l7fYuQmaSnrre8AAAAAAAAAQEAAAAAAAAAHAAAAAAA
-	AAAAAAAAAAAAAM4=
+	TlNmRmxhZ3MjQCoAAAAAAACAAoADEBBYQ29uc29sYXPSFRYXGFgkY2xhc3Nlc1okY2xh
+	c3NuYW1lohgZVk5TRm9udFhOU09iamVjdBIAAYagXxAPTlNLZXllZEFyY2hpdmVyCBEW
+	HygyNTo8QUdQV15lbnd5e32Gi5SfoqmytwAAAAAAAAEBAAAAAAAAABwAAAAAAAAAAAAA
+	AAAAAADJ
 	</data>
 	<key>FontAntialias</key>
 	<true/>
+	<key>FontHeightSpacing</key>
+	<real>1</real>
 	<key>FontWidthSpacing</key>
 	<real>1.004032258064516</real>
 	<key>ProfileCurrentVersion</key>
@@ -49,8 +51,16 @@
 	U0NvbG9yWE5TT2JqZWN0EgABhqBfEA9OU0tleWVkQXJjaGl2ZXIIERYfKDI1OjxARk1V
 	Yml3eXuAiZSXn6itAAAAAAAAAQEAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAL8=
 	</data>
-	<key>ShowWindowSettingsNameInTitle</key>
+	<key>ShowActiveProcessInTitle</key>
 	<true/>
+	<key>ShowCommandKeyInTitle</key>
+	<false/>
+	<key>ShowDimensionsInTitle</key>
+	<false/>
+	<key>ShowShellCommandInTitle</key>
+	<true/>
+	<key>ShowWindowSettingsNameInTitle</key>
+	<false/>
 	<key>TerminalType</key>
 	<string>xterm-color</string>
 	<key>TextBoldColor</key>
@@ -100,13 +110,13 @@
 	</data>
 	<key>brightGreenColour</key>
 	<data>
-	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMDhAJm
-	ZoMAAAA/AYY=
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmg+ivND+DkWlYPwABhg==
 	</data>
 	<key>brightMagentaColour</key>
 	<data>
-	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
-	ZmZmg8k0bD+Dozn2PYPBAgM/AYY=
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMDhAJm
+	ZoMAAAA/AYY=
 	</data>
 	<key>brightRedColour</key>
 	<data>
