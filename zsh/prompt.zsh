@@ -11,5 +11,5 @@ precmd() {
 # Setup the prompt with pretty colors
 setopt prompt_subst
 PROMPT='%{%f%k%b%}
-%(?..%{%F{red}%}✘%f )%B%F{magenta}%n@%m%f%b %F{yellow}%3~%f${vcs_info_msg_0_} 
+%(?..%{%F{red}%}✖ $?%f )%B%F{magenta}%n@%m%f%b %F{yellow}%3~%f${vcs_info_msg_0_} 
 %{%f%k%b%} %# '
