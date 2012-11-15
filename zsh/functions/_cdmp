@@ -1,2 +1,0 @@
-#compdef cdmp
-_files -W ~git/mediaport3/ -/
