@@ -10,7 +10,7 @@
         default = current
 
 [alias]
-        cm       = commit -a -m
+        cm       = commit -m
         promote  = !$ZSH/bin/git-promote
         wtf      = !$ZSH/bin/git-wtf
         rank-contributers = !$ZSH/bin/git-rank-contributers
