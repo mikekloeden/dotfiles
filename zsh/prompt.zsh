@@ -16,7 +16,7 @@ todo(){
   then
     num=$(echo $(todo.sh ls +next | wc -l))
     let todos=num-2
-    if [ $todos != 0 ]
+    if [ $todos -gt 0 ]
     then
       echo "✔ $todos"
     else
