@@ -37,3 +37,6 @@ alias _='sudo'
 
 # Show history
 alias history='fc -l 1'
+
+# Todo
+alias t='todo.sh'
