@@ -7,6 +7,9 @@ c() { cd $PROJECTS/$1; }
 _c() { _files -W $PROJECTS -/; }
 compdef _c c
 
+_mcd() { _files -W $PWD -/; }
+compdef _mcd mcd
+
 cdgit() { cd ~git/$1; }
 _cdgit() { _files -W ~git -/; }
 compdef _cdgit cdgit
