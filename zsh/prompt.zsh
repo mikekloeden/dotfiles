@@ -8,28 +8,17 @@ precmd() {
     vcs_info
 }
 
-# This keeps the number of todos always available the right hand side of my
-# command line. I filter it to only count those tagged as "+next", so it's more
-# of a motivation to clear out the list.
-todo(){
-  if $(which todo.sh &> /dev/null)
+prompt_refdiff() {
+  if git rev-parse origin &> /dev/null
   then
-    num=$(echo $(todo.sh ls +next | wc -l))
-    let todos=num-2
-    if [ $todos -gt 0 ]
-    then
-      echo "✔ $todos"
-    else
-      echo ""
-    fi
-  else
-    echo ""
+    set -- `git rev-list --left-right --count origin...HEAD`
+    [ $1 -gt 0 ] && echo -$1
+    [ $2 -gt 0 ] && echo +$2
   fi
 }
 
 # Setup the prompt with pretty colors
 setopt prompt_subst
 PROMPT='%{%f%k%b%}
-%(?..%{%F{red}%}✖ $?%f )%B%F{magenta}%n@%m%f%b %F{yellow}%3~%f${vcs_info_msg_0_} 
+%(?..%{%F{red}%}✖ $?%f )%B%F{magenta}%n@%m%f%b %F{yellow}%3~%f${vcs_info_msg_0_} %B%F{magenta}$(prompt_refdiff)%f%b 
 %{%f%k%b%} %# '
-RPROMPT="%B%F{magenta}$(todo)%{%f%k%b%}"
