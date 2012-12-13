@@ -1,29 +1,47 @@
 # load vcs_info and register our prompt function
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' stagedstr 'M' 
-zstyle ':vcs_info:*' unstagedstr 'M' 
+zstyle ':vcs_info:*' stagedstr '%F{yellow}M%f' 
+zstyle ':vcs_info:*' unstagedstr '%F{green}M%f' 
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' actionformats " %B%F{magenta}[%%b%f%s%B%F{magenta}]%f%k-%B%F{magenta}[%%b%F{green}%b%B%F{magenta}|%F{red}%a%B%F{magenta}]%f%k"
-zstyle ':vcs_info:*' formats       " %B%F{magenta}[%%b%f%s%B%F{magenta}]%f%k-%B%F{magenta}[%%b%F{green}%b%B%F{magenta}]%f%k %F{yellow}%c%F{green}%u"
+zstyle ':vcs_info:*' actionformats " %B%F{magenta}[%%b%f%s%f%k:%%b%F{green}%b%B%F{magenta}|%F{red}%a%B%F{magenta}]%f%k"
+zstyle ':vcs_info:*' formats       " %B%F{magenta}[%%b%f%s%f%k:%%b%F{green}%b%B%F{magenta}]%f%k %c%u"
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-st
 
 precmd() {
     vcs_info
 }
 
-prompt_refdiff() {
-  remote=`git rev-parse --symbolic-full-name --abbrev-ref HEAD@{u} 2>/dev/null`
-  if [ $? -gt 0 ]; then
-    echo -n ""
-  else
-    set -- `git rev-list --left-right --count HEAD...${remote}`
-    [ $1 -gt 0 ] && echo -n "%f↑%F{green}$1"
-    [ $2 -gt 0 ] && echo -n "%f↓%F{red}$2"
-  fi
+# Show untracked files indicator
++vi-git-untracked() {
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+    git status --porcelain | grep '??' &> /dev/null ; then
+    hook_com[unstaged]+='%F{red}??%f'
+  fi  
+}
+
+# Show remote ref name and number of commits ahead-of or behind
++vi-git-st() {
+    local ahead behind remote
+    local -a gitstatus
+
+    # Are we on a remote-tracking branch?
+    remote=${$(git rev-parse --verify ${hook_com[branch]}@{upstream} \
+        --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
+
+    if [[ -n ${remote} ]] ; then
+        ahead=$(git rev-list --count ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null)
+        (( $ahead )) && gitstatus+=( "%F{green}+${ahead}%f" )
+
+        behind=$(git rev-list --count HEAD..${hook_com[branch]}@{upstream} 2>/dev/null)
+        (( $behind )) && gitstatus+=( "%F{red}-${behind}%f" )
+
+        hook_com[branch]="${hook_com[branch]}%f...%B%F{magenta}${remote}%f%k${gitstatus:+%f:}${(j::)gitstatus}"
+    fi
 }
 
 # Setup the prompt with pretty colors
 setopt prompt_subst
-PROMPT='%{%f%k%b%}
-%(?..%{%F{red}%}✖ $?%f )%B%F{magenta}%n@%m%f%b %F{yellow}%3~%f${vcs_info_msg_0_}$(prompt_refdiff)
-%{%f%k%b%} %# '
+PROMPT='%f%k%b
+%(?..%F{red}✖ $?%f )%B%F{magenta}${SSH_TTY:+%n@%m }%f%b%F{yellow}%3~%f${vcs_info_msg_0_}
+%f%k%b %# '
