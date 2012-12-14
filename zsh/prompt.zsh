@@ -31,12 +31,12 @@ precmd() {
 
     if [[ -n ${remote} ]] ; then
         ahead=$(git rev-list --count ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null)
-        (( $ahead )) && gitstatus+=( "%F{green}+${ahead}%f" )
+        (( $ahead )) && gitstatus+=( "+${ahead}" )
 
         behind=$(git rev-list --count HEAD..${hook_com[branch]}@{upstream} 2>/dev/null)
-        (( $behind )) && gitstatus+=( "%F{red}-${behind}%f" )
+        (( $behind )) && gitstatus+=( "-${behind}" )
 
-        hook_com[branch]="${hook_com[branch]}%f...%B%F{magenta}${remote}%f%k${gitstatus:+%f:}${(j::)gitstatus}"
+        hook_com[branch]="${hook_com[branch]}%f...%B%F{magenta}${remote}%f%k${gitstatus:+ }${(j: :)gitstatus}"
     fi
 }
 
