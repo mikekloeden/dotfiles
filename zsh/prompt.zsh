@@ -36,6 +36,7 @@ precmd() {
         behind=$(git rev-list --count HEAD..${hook_com[branch]}@{upstream} 2>/dev/null)
         (( $behind )) && gitstatus+=( "-${behind}" )
 
+        divider="%B%F{magenta}/%f%k"
         hook_com[branch]="${hook_com[branch]}%f...%B%F{magenta}${remote}%f%k${gitstatus:+ }${(j: :)gitstatus}"
     fi
 }
