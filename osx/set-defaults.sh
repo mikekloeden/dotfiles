@@ -18,7 +18,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "mikl MacBook Pro"
+sudo scutil --set ComputerName "Mikes MacBook Pro"
 sudo scutil --set HostName "vmac643"
 sudo scutil --set LocalHostName "vmac643"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "vmac643"
@@ -428,7 +428,7 @@ defaults write com.twitter.twitter-mac HideInBackground -bool true
 # Kill affected applications                                                  #
 ###############################################################################
 
-for app in "Dashboard" "Dock" "Finder" "SystemUIServer" "Terminal"; do
+for app in "Dashboard" "Dock" "Finder" "SystemUIServer"; do
 	killall "$app" > /dev/null 2>&1
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."

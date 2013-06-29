@@ -1,6 +1,6 @@
 # load vcs_info and register our prompt function
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' stagedstr '%F{yellow}M%f' 
 zstyle ':vcs_info:*' unstagedstr '%F{green}M%f' 
 zstyle ':vcs_info:*' check-for-changes true
