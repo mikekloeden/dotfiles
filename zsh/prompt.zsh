@@ -1,3 +1,4 @@
+autoload colors && colors
 # load vcs_info and register our prompt function
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn

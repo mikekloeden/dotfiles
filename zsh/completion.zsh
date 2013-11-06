@@ -1,12 +1,4 @@
 # completion for some directories
-h() { cd ~/$1; }
-_h() { _files -W ~ -/; }
-compdef _h h
-
-c() { cd $PROJECTS/$1; }
-_c() { _files -W $PROJECTS -/; }
-compdef _c c
-
 _mcd() { _files -W $PWD -/; }
 compdef _mcd mcd
 

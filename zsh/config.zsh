@@ -1,10 +1,15 @@
-autoload colors; colors;
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
+#
+# Color grep results
+# Examples: http://rubyurl.com/ZXv
+#
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='1;30;43'
 
-fpath=($ZSH/zsh/functions $fpath)
+fpath=($ZSH/functions $fpath)
 
-autoload -U $ZSH/zsh/functions/*(:t)
+autoload -U $ZSH/functions/*(:t)
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -32,6 +37,7 @@ setopt HIST_REDUCE_BLANKS
 #   like: git comm-[tab]
 setopt complete_aliases
 
+zle -N newtab
 
 bindkey '^[^[[D' backward-word
 bindkey '^[^[[C' forward-word
