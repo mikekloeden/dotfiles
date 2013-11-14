@@ -2,12 +2,19 @@
         name = Mike Klöden
         email = mike.kloeden@gmail.com
 
+[hub]
+        protocol = https
+        
 [github]
         user = mikekloeden
         token = !cat ~/.github.token
 
 [push]
-        default = current
+        # See `git help config` (search for push.default)
+        # for more information on different options of the below setting.
+        #
+        # Setting to git 2.0 default to surpress warning message
+        default = simple
 
 [alias]
         cm       = commit -m
