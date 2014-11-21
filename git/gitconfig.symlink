@@ -7,7 +7,6 @@
         
 [github]
         user = mikekloeden
-        token = !cat ~/.github.token
 
 [push]
         # See `git help config` (search for push.default)
@@ -29,18 +28,10 @@
         # Undo a `git push`
         undopush = push -f origin HEAD^:master
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-
 [core]
         # Use custom `.gitignore`
         excludesfile = ~/.gitignore
-	autocrlf = input
+	    autocrlf = input
 
 [color]
         # Use colors in Git commands that are capable of colored output when outputting to the terminal
@@ -68,21 +59,15 @@
         remote = origin
         merge = refs/heads/master
 
-# GitHub URL shorthands
-[url "git@github.com:"]
-        insteadOf = "gh:"
-        pushInsteadOf = "github:"
-        pushInsteadOf = "https://github.com/"
-[url "https://github.com/"]
-        insteadOf = "github:"
-[url "git@gist.github.com:"]
-        insteadOf = "gst:"
-        pushInsteadOf = "gist:"
-        pushInsteadOf = "https://gist.github.com/"
-[url "https://gist.github.com/"]
-        insteadOf = "gist:"
-# Custom URL shorthands
-[url "gitolite@xgit:"]
-        insteadOf = "xgit:"
-[url "mikl@leo.uberspace.de:"]
-        insteadOf = "mikl:"
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+	
+[diff]
+	submodule = log
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

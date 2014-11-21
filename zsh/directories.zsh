@@ -37,8 +37,9 @@ cd () {
 alias md='mkdir -p'
 alias rd=rmdir
 alias d='dirs -v | head -10'
+alias yolo='sudo $(fc -ln -1)'
 
 # mkdir & cd to it
-function mcd() { 
-  mkdir -p "$1" && cd "$1"; 
+function mcd() {
+  mkdir -p "$1" && cd "$1";
 }
