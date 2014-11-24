@@ -34,9 +34,7 @@ alias tree='find . -print | sed -e "s;[^/]*/;|____;g;s;____|; |;g"'
 
 # Super user
 alias _='sudo'
+alias yolo='sudo $(fc -ln -1)'
 
 # Show history
 alias history='fc -l 1'
-
-# Todo
-alias t='todo.sh'
