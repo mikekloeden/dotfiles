@@ -1,3 +1,3 @@
-export PATH="/usr/local/bin:$ZSH/bin:./bin:$HOME/.gem/bin:/Applications/elasticsearch/bin/:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$ZSH/bin:./bin:/Applications/elasticsearch/bin:$PATH"
 
-export MANPATH="/usr/local/man:/usr/local/git/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
