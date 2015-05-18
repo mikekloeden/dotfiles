@@ -21,6 +21,7 @@
         wtf      = !$ZSH/bin/git-wtf
         rank-contributers = !$ZSH/bin/git-rank-contributers
         count    = shortlog -sn
+        squash = !HEAD_COMMIT=$(git rev-list @ -n 1) BASE_COMMIT=$(git merge-base @ origin/master) && git reset --soft $BASE_COMMIT && git commit --reuse-message=$HEAD_COMMIT~$[$(git rev-list $BASE_COMMIT..$HEAD_COMMIT --count)-1] --edit
         # Show the diff between the latest commit and the current state
         d        = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
         # Undo your last commit, but don't throw away your changes
