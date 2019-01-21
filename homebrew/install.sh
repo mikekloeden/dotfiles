@@ -13,6 +13,6 @@ then
 fi
 
 # Install homebrew packages
-brew install grc coreutils maven git
+brew install grc coreutils git
 
 exit 0

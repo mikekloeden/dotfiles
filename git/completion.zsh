@@ -7,3 +7,11 @@ if test -f $completion
 then
   source $completion
 fi
+
+# Uses gibos's autocompletion for gitignore templates.
+completion='$(brew --prefix)/share/zsh/site-functions/_gibo'
+
+if test -f $completion
+then
+  source $completion
+fi

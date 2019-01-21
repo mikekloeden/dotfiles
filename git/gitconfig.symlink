@@ -1,6 +1,6 @@
 [user]
-        name = Mike Klöden
-        email = mike.kloeden@gmail.com
+	name = Mike Klöden
+	email = mike.kloeden@gmail.com
 
 [hub]
         protocol = https
@@ -20,7 +20,10 @@
         promote  = !$ZSH/bin/git-promote
         wtf      = !$ZSH/bin/git-wtf
         rank-contributers = !$ZSH/bin/git-rank-contributers
-        count    = shortlog -sn
+        count-last-month    = shortlog -n --pretty=format:'%Cred%d%Creset %s %Cgreen(%cr)' --cherry --after 14.days.ago --all
+        stat = !"git --no-pager shortlog --pretty=format:'%Cgreen%h - %cD%Creset %Cred%d%Creset %s' --cherry --all --reverse"  
+        stat-last-month = !"git stat --after={`date -v-1m -v-$(($(date +%d)-1))d "+%Y-%m-%dT00:00:00+00:00"`} --before={`date -v-$(date +%d)d "+%Y-%m-%dT23:59:59+00:00"`}"  
+        stat-current-month = !"git stat --after={`date -v-$(($(date +%d)-1))d "+%Y-%m-%dT00:00:00+00:00"`}"
         squash = !HEAD_COMMIT=$(git rev-list @ -n 1) BASE_COMMIT=$(git merge-base @ origin/master) && git reset --soft $BASE_COMMIT && git commit --reuse-message=$HEAD_COMMIT~$[$(git rev-list $BASE_COMMIT..$HEAD_COMMIT --count)-1] --edit
         # Show the diff between the latest commit and the current state
         d        = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
@@ -31,7 +34,7 @@
 
 [core]
         # Use custom `.gitignore`
-        excludesfile = ~/.gitignore
+	excludesfile = /Users/mike/.gitignore
 	    autocrlf = input
 
 [color]
@@ -55,11 +58,6 @@
         # Include summaries of merged commits in newly created merge commit messages
         log = true
 
-# Use `origin` as the default remote on the `master` branch in all cases
-[branch "master"]
-        remote = origin
-        merge = refs/heads/master
-
 [filter "media"]
 	required = true
 	clean = git media clean %f
@@ -71,5 +69,18 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Users/mike/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[commit]
+	template = /Users/mike/.stCommitMsg
+
+[credential]
+	helper = osxkeychain
